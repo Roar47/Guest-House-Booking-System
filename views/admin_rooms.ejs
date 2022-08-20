@@ -1,0 +1,20 @@
+
+<center>
+<div>
+    <h1>Rooms Details</h1>
+    <table style="border: 1px solid black;">
+        <tr style="border: 1px solid black;">
+            <th style="border: 1px solid black;">Number</th>
+            <th style="border: 1px solid black;">Type</th>
+            <th style="border: 1px solid black;">Status</th>
+        </tr>
+        <% for (var i = 0; i < rooms.length; i++) {%>
+            <tr style="border: 1px solid black;">
+                <td style="border: 1px solid black;">C<%= rooms[i].rid %></td>
+                <td style="border: 1px solid black;"><%= rooms[i].rtype %></td>
+                <td style="border: 1px solid black;"><%= rooms[i].status %></td>
+            </tr>
+        <% } %>
+    </table>
+</div>
+</center>

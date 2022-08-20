@@ -1,0 +1,70 @@
+Queries used :-
+
+--Creating database
+create database GuestHouse;
+....................................................................................................
+----Creating Table Customer
+create table customer(
+    cid varchar(30) PRIMARY KEY,
+    password varchar(150),
+    name varchar(30),
+    mobile varchar(15),
+    email varchar(30),
+    rtype int,
+    amount int default 0,
+    paid int default 0,
+    checkin date,
+    type int
+);
+.............................................................................................................
+----Creating Table Food and 
+----Food Type : 1,2,3 (Breakfast,Lunch,Dinner)
+
+create table food(
+    fid varchar(30) PRIMARY KEY,
+    fname varchar(30),
+    ftype int,
+    price int
+)
+...............................................................................................................
+---Creating Table Room and
+---Room Type : 1,2,3 (Gold,Platinum,Diamond)
+
+create table room(
+    rid varchar(30) PRIMARY KEY,
+    rtype int,
+    status int
+);
+..............................................................................................................
+After making these table insert a row in customer table whoose username password will be used as ADMIN credential.
+Fo ex.
+-----For inserting the row for ADMIN credential-
+  mysql> insert into customer values('ADMIN','1234','Admin_Name','0000','admin@gmail.com',0,0,0,'0000-00-00',1);
+.....................................................................................................................
+
+--Choosing the first vacant user selected room
+select rid from room where rtype={choosen_rid} and status=0 limit 1
+.................................................................................................................
+---changing the status of room while allocating the room
+update room set status=1 where rid={given_rid}
+.................................................................................................................
+
+--updating the amount column of customer while after ordering food and bill generated;
+update customer set amount=amount+${price} where cid='${req.session.passport.user}
+
+....................................................................................................................
+
+--updating paid column of customer after bill payement
+update customer set paid=paid+${amount}
+
+.....................................................................................................................
+
+
+
+
+
+
+
+
+
+

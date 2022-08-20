@@ -1,0 +1,25 @@
+<center>
+<h1>Customers Data</h1>
+<table style="border: 2px solid black;">
+    <tr style="border: 2px solid black;" >
+        <th style="border: 2px solid black;">ID</th>
+        <th style="border: 2px solid black;">Name</th>
+        <th style="border: 2px solid black;">Email</th>
+        <th style="border: 2px solid black;">Mobile</th>
+        <th style="border: 2px solid black;">Room Number</th>
+        <th style="border: 2px solid black;">Remaining Bill</th>
+        <th style="border: 2px solid black;">Check-in Date</th>
+    </tr>
+    <% for (var i = 0; i < customer.length; i++) {%>
+        <tr style="border: 2px solid black;">
+            <td style="border: 2px solid black;">C<%= customer[i].cid %></td>
+            <td style="border: 2px solid black;"><%= customer[i].name %></td>
+            <td style="border: 2px solid black;"><%= customer[i].email %></td>
+            <td style="border: 2px solid black;"><%= customer[i].mobile %></td>
+            <td style="border: 2px solid black;"><%= customer[i].cid %></td>
+            <td style="border: 2px solid black;"><%= customer[i].amount-customer[i].paid %></td>
+            <td style="border: 2px solid black;"><%= customer[i].checkin %></td>
+        </tr>
+    <% } %>
+</table>
+</center>
